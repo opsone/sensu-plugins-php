@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'php_fpm/version'
+require_relative 'php/version'
 
 module Sensu
   module Plugins
-    module PhpFpm
+    module Php
       class Error < StandardError; end
     end
   end

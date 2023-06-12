@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'net/https'
-require 'openssl'
+require 'net/http'
 require 'sensu-plugin/check/cli'
-require 'uri'
 
 class CheckPhpFpm < Sensu::Plugin::Check::CLI
   option :hostname,
@@ -14,7 +12,7 @@ class CheckPhpFpm < Sensu::Plugin::Check::CLI
          default: '127.0.0.1'
 
   option :port,
-         short: '-P PORT',
+         short: '-p PORT',
          long: '--port PORT',
          description: 'Nginx port',
          proc: proc(&:to_i),
@@ -26,45 +24,17 @@ class CheckPhpFpm < Sensu::Plugin::Check::CLI
          description: 'Path to your fpm ping',
          default: 'fpm-ping'
 
-  option :scheme,
-         description: 'Request scheme to use',
-         short: '-s SCHEME',
-         long: '--scheme SCHEME',
-         default: 'http://'
-
   option :response,
          description: 'Expected response',
          short: '-r RESPONSE',
          long: '--response RESPONSE',
          default: 'pong'
 
-  option :ssl,
-         short: '-l',
-         long: '--ssl',
-         boolean: true,
-         description: 'Enabling SSL connections',
-         default: false
-
-  option :insecure,
-         short: '-k',
-         long: '--insecure',
-         boolean: true,
-         description: 'Enabling insecure connections',
-         default: false
-
   def run
-    url = "#{config[:scheme]}#{config[:hostname]}:#{config[:port]}/#{config[:path]}"
-    uri = URI.parse(url)
-
-    request = Net::HTTP::Get.new(uri.request_uri)
-    http = Net::HTTP.new(uri.host, uri.port)
-
-    if config[:ssl]
-      http.use_ssl = true
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE if config[:insecure]
+    response = Net::HTTP.start(config[:hostname], config[:port]) do |connection|
+      request = Net::HTTP::Get.new("/#{config[:path]}")
+      connection.request(request)
     end
-
-    response = http.request(request)
 
     if response.code == '200'
       if response.body == config[:response]

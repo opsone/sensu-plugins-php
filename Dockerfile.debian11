@@ -1,7 +1,7 @@
 FROM sensu-ruby32-runtime-3.2.2-debian11:0.1.2
-ARG ASSET_GEM=sensu-plugins-php-fpm
-ARG GIT_REF=5228dae4548d029b9283050fd2827ca65e123053
-ARG GIT_REPO=https://github.com/opsone/sensu-plugins-php-fpm.git
+ARG ASSET_GEM=sensu-plugins-php
+ARG GIT_REF=344309ccc72248c7cd673dd7e09b76a67a84b026
+ARG GIT_REPO=https://github.com/opsone/sensu-plugins-php.git
 
 WORKDIR /assets/build/
 RUN apt-get update && apt-get install -y git

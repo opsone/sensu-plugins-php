@@ -2,8 +2,8 @@
 
 module Sensu
   module Plugins
-    module PhpFpm
-      VERSION = '0.1.0'
+    module Php
+      VERSION = '0.2.0'
     end
   end
 end

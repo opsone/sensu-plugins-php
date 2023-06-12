@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-require_relative 'lib/sensu/plugins/php_fpm'
+require_relative 'lib/sensu/plugins/php'
 
 Gem::Specification.new do |spec|
-  spec.name = 'sensu-plugins-php-fpm'
-  spec.version = Sensu::Plugins::PhpFpm::VERSION
+  spec.name = 'sensu-plugins-php'
+  spec.version = Sensu::Plugins::Php::VERSION
   spec.authors = ['Kevyn Lebouille']
   spec.email = ['kevyn.lebouille@opsone.net']
 
   spec.summary = 'This plugin provides facilities for monitoring PHP FPM'
-  spec.homepage = 'https://github.com/opsone/sensu-plugins-php-fpm'
+  spec.homepage = 'https://github.com/opsone/sensu-plugins-php'
   spec.required_ruby_version = '>= 3.2.0'
 
   spec.metadata['allowed_push_host'] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/opsone/sensu-plugins-php-fpm'
-  spec.metadata['changelog_uri'] = 'https://github.com/opsone/sensu-plugins-php-fpm/CHANGELOG.md'
+  spec.metadata['source_code_uri'] = 'https://github.com/opsone/sensu-plugins-php'
+  spec.metadata['changelog_uri'] = 'https://github.com/opsone/sensu-plugins-php/CHANGELOG.md'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
