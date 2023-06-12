@@ -3,7 +3,7 @@
 require_relative 'lib/sensu/plugins/php_fpm'
 
 Gem::Specification.new do |spec|
-  spec.name = 'sensu-plugins-php_fpm'
+  spec.name = 'sensu-plugins-php-fpm'
   spec.version = Sensu::Plugins::PhpFpm::VERSION
   spec.authors = ['Kevyn Lebouille']
   spec.email = ['kevyn.lebouille@opsone.net']
