@@ -1,2 +1,3 @@
-/assets/
-/Gemfile.lock
+dist/
+/check-php-fpm
+/integration/check-php-fpm
