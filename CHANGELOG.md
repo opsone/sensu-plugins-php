@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased] - 0.3.0
+## [0.3.0] - 2026-11-08
 
 ### Changed
 - Rewritten in Go with `github.com/sensu/sensu-plugin-sdk`: static `linux/amd64` binary, no Ruby runtime asset, one asset for every Debian release.
